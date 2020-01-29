@@ -9,6 +9,9 @@ pytest = "*"
 [packages]
 flask = "*"
 tweepy = "*"
+simplejson = "*"
+redis = "*"
+textblob = "*"
 
 [requires]
 python_version = "3.7"
