@@ -57,6 +57,7 @@ class StreamListener(tweepy.StreamListener):
         
 stream_listener = StreamListener()
 stream = tweepy.Stream(auth=api.auth, listener=stream_listener)
-stream.filter(track=["@oajibode","@WarbyParker", "@Bonobos", "@Casper", "pizza", "Dominos"])
+stream.filter(track=["@Sky","@BBCSports", "@Arsenal", "Arsenal"])
+# stream.filter(track=["@oajibode","@WarbyParker", "@Bonobos", "@Casper", "@Arsenal", "Arsenal"])
 
 

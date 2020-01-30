@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+    <title>DTC-Twitter Filter - Sentiment Analysis Dashboard</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="row mb-5">
+            <div class="col text-center">
+                <h1 class="mb-3">
+                    DTC-Twitter Filter
+                </h1>
+                <h4 class="mb-2">
+                    <small class="text-muted">
+              Monitoring Arsenal, Warby Parker, Bonobos, Casper, Glossier, Dollar Shave Club and Allbirds
+            </small>
+                </h4>
+            </div>
+        </div>
+
+        {% for tweet in tweets %}
+        <div class="row my-4 justify-content-center ">
+            <div class="col-md-2">
+                <div class="card-text username-muted">
+                    <img alt="{{ tweet.data.username }}" height="48" src="{{ tweet.data.profile_image_url }}" width="48" class="mr-3" /> <br>{{ tweet.data.name }} (<a href="{{ tweet.user_link() }}" target="_blank">{{ tweet.data.username }}</a>)
+                </div>
+            </div>
+            <div class="col-md-10">
+                <div class="card {{ 'positive' if tweet.data.polarity > 0 }} {{ 'negative' if tweet.data.polarity < 0 }}">
+                    <div class="card-body">
+                        <p class="card-text">
+                            {{ tweet.filtered_text()|safe }}
+                        </p>
+                        <br />
+
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-md-4"></div> -->
+        </div>
+        {% endfor %}
+
+        <div class="text-center mb-4">
+            <a class="btn btn-primary" href="/" role="button">Refresh</a>
+        </div>
+
+
+    </div>
+</body>
+
+</html>
