@@ -1,2 +1,4 @@
 config
 app/__pycache__
+.vscode
+.metals
