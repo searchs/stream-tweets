@@ -13,7 +13,8 @@ simplejson = "*"
 redis = "*"
 textblob = "*"
 jinja2 = ">=2.11.3"
-
+nltk = ">=3.6.4"
+urllib3 = ">=1.26.5"
 
 [requires]
 python_version = "3.8"
